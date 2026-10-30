@@ -39,9 +39,9 @@ Entrance states are hidden before first paint only when motion is allowed, and a
 
 ## Tests and preview
 
-`npm test` checks official booking mappings, local photos, GSAP integrity and core color contrast. `scripts/browser-check.mjs` provides focused Playwright regression checks against a running server, writing screenshots and reports to ignored `test-results/`. Set `PLAYWRIGHT_MODULE` and `CHROMIUM_PATH` to reuse an installed package/browser, or install Playwright when networking is available. `TEST_BASE_URL` selects the local server.
+`npm test` checks official booking mappings, local photos, GSAP integrity and core color contrast. `scripts/browser-check.mjs` provides focused Playwright regression checks against a running server, writing screenshots, a walkthrough video and a report to ignored `test-results/motion/`. Set `PLAYWRIGHT_MODULE` and `CHROMIUM_PATH` to reuse an installed package/browser, or install Playwright when networking is available. `TEST_BASE_URL` selects the local server.
 
-See `docs/phase-2-verification.md` for checks actually performed and remaining limits. A test script's existence alone does not demonstrate a successful run.
+See `docs/motion-verification.md` for checks actually performed and remaining limits. A test script's existence alone does not demonstrate a successful run.
 
 ## Deployment
 

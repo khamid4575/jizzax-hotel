@@ -150,6 +150,7 @@
   display: block;
 }
 .button {
+  white-space: nowrap;
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -548,8 +549,9 @@ html[data-motion="on"] .hero-rosette [pathLength] {
   padding: 6px 0;
   border-bottom: 1px solid var(--line-light);
   font-family: var(--font-display);
-  font-size: clamp(40px, 6.2vw, 104px);
+  font-size: clamp(40px, 5.2vw, 92px);
   line-height: 1.05;
+  white-space: nowrap;
 }
 .menu-link-mask {
   display: block;
@@ -594,7 +596,7 @@ html[data-motion="on"] .hero-rosette [pathLength] {
   display: none;
   position: relative;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 999px 999px 18px 18px;
   background: var(--color-navy);
 }
 .menu-preview-image {
@@ -920,8 +922,9 @@ html[data-motion="on"] .hero-rosette [pathLength] {
 }
 .manifesto-arch {
   position: relative;
-  width: 82%;
-  aspect-ratio: 3 / 4.2;
+  width: 74%;
+  max-width: 520px;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: 999px 999px 6px 6px;
   background: var(--color-mist);
@@ -931,7 +934,7 @@ html[data-motion="on"] .hero-rosette [pathLength] {
 }
 .manifesto-detail {
   position: absolute;
-  right: 0;
+  right: 4%;
   bottom: -8%;
   width: 44%;
   aspect-ratio: 4 / 5;
@@ -1015,67 +1018,66 @@ html[data-motion="on"] .hero-rosette [pathLength] {
   padding-top: 0.3em;
 }
 
-/* ——— Lobby: assembling panels ——— */
+/* ——— Lobby: assembling panels in a contained frame ——— */
 .expand-stage {
-  position: relative;
-  height: 100svh;
-  min-height: 560px;
-  overflow: hidden;
+  display: grid;
+  gap: 40px;
+  padding: 14vh var(--gutter);
   background: var(--color-cloud);
+  color: var(--color-navy);
 }
-.expand-frame {
-  position: absolute;
-  inset: 0;
-}
-.slice {
-  position: absolute;
-  inset: 0;
-  will-change: transform;
-}
-.slice img {
-  will-change: transform;
-}
-.expand-shade {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(0deg, rgb(4 17 31 / 0.82), rgb(4 17 31 / 0.1) 55%),
-    rgb(4 17 31 / 0.15);
+.expand-copy {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 24px;
 }
 .expand-label {
-  position: absolute;
-  top: 14vh;
-  left: 0;
-  right: 0;
-  text-align: center;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: var(--color-ice);
+  color: var(--color-blue);
 }
 .expand-title {
-  position: absolute;
-  inset: auto var(--gutter) 22vh;
-  text-align: center;
-  font-size: clamp(56px, 9vw, 176px);
+  font-size: clamp(48px, 5.6vw, 104px);
   font-weight: 300;
-  color: white;
-  pointer-events: none;
+  line-height: 0.98;
 }
 .expand-title em {
-  color: var(--color-ice);
+  color: var(--color-royal);
 }
 .expand-caption {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  bottom: 9vh;
-  max-width: 40ch;
-  margin-inline: auto;
-  text-align: center;
+  max-width: 34ch;
   font-size: 15px;
-  color: rgb(255 255 255 / 0.84);
+  color: var(--color-muted);
+}
+.expand-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--color-mist);
+}
+.slice {
+  position: absolute;
+  inset: 0;
+}
+
+@media (min-width: 1000px) {
+  .expand-stage {
+    grid-template-columns: 0.75fr 1fr;
+    align-items: center;
+    gap: 6vw;
+    height: 100vh;
+    min-height: 600px;
+    padding-block: 12vh;
+  }
+  .expand-frame {
+    aspect-ratio: auto;
+    height: 100%;
+    max-height: 680px;
+  }
 }
 
 /* ——— Story ——— */
@@ -2100,7 +2102,7 @@ html[data-motion="on"] .hero-rosette [pathLength] {
     display: inline-flex;
   }
   .menu-body {
-    grid-template-columns: 1.4fr 0.8fr 0.55fr;
+    grid-template-columns: 1.3fr 0.7fr 0.7fr;
     gap: 4vw;
   }
   .menu-preview {
