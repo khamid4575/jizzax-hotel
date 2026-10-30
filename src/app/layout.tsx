@@ -1,6 +1,24 @@
 import type { Metadata, Viewport } from "next";
+import { Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
 import { hotel, photo } from "@/lib/hotel";
+import { Providers } from "@/components/providers";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { Cursor } from "@/components/cursor";
+
+// next/font downloads both families at build time and serves them locally.
+const display = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-display",
+  display: "swap",
+});
+const sans = Manrope({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(hotel.website),
@@ -22,14 +40,31 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export const viewport: Viewport = { themeColor: "#071d35" };
+export const viewport: Viewport = { themeColor: "#061a2e" };
+
+// Runs before first paint: entrance states are only hidden when motion is
+// allowed, and are released after 3.5s if the scripts never arrive.
+const motionFlag = `(function(d){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.dataset.motion='on';setTimeout(function(){if(!d.dataset.motionReady)delete d.dataset.motion},3500)}catch(e){}})(document.documentElement)`;
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: motionFlag }} />
+      </head>
+      <body>
+        <Providers>
+          <SmoothScroll />
+          <Cursor />
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }

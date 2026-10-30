@@ -20,8 +20,18 @@ export const galleryImages = [
     caption: "A quiet corner of the hotel",
   },
   {
+    image: "dc37521878c2d8a9",
+    title: "Open to the sky",
+    caption: "The junior twin suite and its balcony",
+  },
+  {
     image: "b4227c450f5945ba",
     title: "Ideas come together",
     caption: "The hotel conference room",
+  },
+  {
+    image: "2c10cb74b517fcc4",
+    title: "Room to breathe",
+    caption: "The senior king size suite",
   },
 ] as const;

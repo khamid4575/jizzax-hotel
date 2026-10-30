@@ -1,10 +1,14 @@
 "use client";
 import Image from "next/image";
+import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { galleryImages } from "@/lib/gallery";
 import { photo } from "@/lib/hotel";
+import { lockScroll, unlockScroll } from "@/lib/scroll";
 import { Arrow } from "./icons";
 import { keepDialogFocus } from "@/lib/dialog-focus";
+
+const ease = [0.76, 0, 0.24, 1] as const;
 
 export default function Lightbox({
   initialIndex,
@@ -17,24 +21,23 @@ export default function Lightbox({
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const gesture = useRef<{ x: number; y: number } | null>(null);
-  const [index, setIndex] = useState(initialIndex);
+  const [[index, direction], setPosition] = useState([initialIndex, 0]);
   const item = galleryImages[index];
   const closeRef = useRef(onClose);
   closeRef.current = onClose;
   const readyRef = useRef(onReady);
-  const move = (direction: number) =>
-    setIndex(
-      (current) =>
-        (current + direction + galleryImages.length) % galleryImages.length,
-    );
+  const move = (step: number) =>
+    setPosition(([current]) => [
+      (current + step + galleryImages.length) % galleryImages.length,
+      step,
+    ]);
   useEffect(() => {
     const element = dialog.current;
-    const overflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    lockScroll();
     element?.showModal();
     readyRef.current();
     return () => {
-      document.body.style.overflow = overflow;
+      unlockScroll();
       element?.close();
     };
   }, []);
@@ -63,7 +66,7 @@ export default function Lightbox({
       }}
     >
       <div className="lightbox-top">
-        <span>JIZZAX / A CLOSER LOOK</span>
+        <span>Jizzax / A closer look</span>
         <button
           className="lightbox-close"
           type="button"
@@ -91,14 +94,37 @@ export default function Lightbox({
           gesture.current = null;
         }}
       >
-        <Image
-          key={item.image}
-          src={photo(item.image)}
-          alt={item.caption}
-          fill
-          sizes="100vw"
-          draggable={false}
-        />
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={item.image}
+            className="lightbox-slide"
+            custom={direction}
+            variants={{
+              enter: (d: number) => ({
+                clipPath:
+                  d < 0 ? "inset(0% 100% 0% 0%)" : "inset(0% 0% 0% 100%)",
+                scale: 1.08,
+              }),
+              centre: { clipPath: "inset(0% 0% 0% 0%)", scale: 1 },
+              exit: (d: number) => ({
+                opacity: 0.4,
+                x: d < 0 ? "8%" : "-8%",
+              }),
+            }}
+            initial="enter"
+            animate="centre"
+            exit="exit"
+            transition={{ duration: 0.9, ease }}
+          >
+            <Image
+              src={photo(item.image)}
+              alt={item.caption}
+              fill
+              sizes="100vw"
+              draggable={false}
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
       <div className="lightbox-bottom">
         <div aria-live="polite" aria-atomic="true">
