@@ -76,7 +76,7 @@ export function RoomCollection() {
       const target = detail.current;
       if (!target) return;
       const split = SplitText.create(target.querySelector("h3"), {
-        type: "chars,lines",
+        type: "lines,words,chars",
         mask: "lines",
         linesClass: "room-title-line",
       });

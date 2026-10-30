@@ -16,9 +16,9 @@ export function Location() {
     media.add(MQ.motion, () => {
       gsap.fromTo(
         q(".location-art"),
-        { clipPath: "inset(18% 22% 18% 22% round 999px)" },
+        { clipPath: "inset(35% 18% 0% 18% round 999px 999px 0px 0px)" },
         {
-          clipPath: "inset(0% 0% 0% 0% round 28px)",
+          clipPath: "inset(0% 0% 0% 0% round 999px 999px 0px 0px)",
           ease: "none",
           scrollTrigger: {
             trigger: q(".location-art")[0],

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import { hotel, photo } from "@/lib/hotel";
 import { Providers } from "@/components/providers";
@@ -7,15 +7,16 @@ import { SmoothScroll } from "@/components/smooth-scroll";
 import { Cursor } from "@/components/cursor";
 
 // next/font downloads both families at build time and serves them locally.
-const display = Instrument_Serif({
+const display = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
-const sans = Manrope({
+const sans = Montserrat({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-sans",
   display: "swap",
 });

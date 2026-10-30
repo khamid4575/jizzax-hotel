@@ -24,14 +24,18 @@ The official CSS variables are saved in `docs/official-brand-variables.css`. Ver
 
 ## Motion and interaction
 
-- GSAP **3.13.0** and ScrollTrigger are dynamically imported and bundled into local Next chunks. `vendor/gsap-3.13.0.tgz` is the official registry archive, verified against its published SHA-512 integrity. Keeping the package archive enables installation without a runtime CDN dependency. The archive retains its license notices.
-- Hero image masking and line choreography lead into a desktop pinned, scrubbed scale transition.
-- The introduction combines an image mask, foreground parallax and scroll-linked text color.
-- The room showcase has eight selectors, category filters, image wipes, content transitions, touch gestures and a reservation link matching the selected room. All eight booking links remain available in native HTML details, including without JavaScript.
-- The desktop experience sequence pins three image/text compositions. Mobile and reduced-motion layouts show all chapters in natural flow.
-- The gallery uses alternating image masks, native horizontal touch scrolling and a lazy-loaded fullscreen dialog with arrows, keyboard navigation, Escape, swipe recognition and focus restoration.
-- Fullscreen navigation, animated underlines, directional hover treatments and fine-pointer magnetic CTAs complete the interaction layer.
-- Reduced-motion preferences disable pinning, scrubbing, CSS entrance motion and smooth scrolling. Content is readable before the animation module loads. There is no Lenis, WebGL or scroll hijacking.
+Stack: GSAP 3.13 (ScrollTrigger, SplitText, Flip), Lenis 1.3 for wheel smoothing (touch keeps native scrolling), Motion 14 for UI springs, Tailwind 4 for tokens. Every component scopes its animations in `useGsap` (`src/hooks/use-gsap.ts`), a GSAP context plus matchMedia that is reverted on unmount. Desktop (≥1000×560) and compact screens get separate compositions; reduced motion matches neither and gets the static layout.
+
+- **Hero — the arch window.** A girih rosette draws itself, the facade rises into a peshtaq-shaped arch, and the title arrives character by character. Scrolling (pinned on desktop) opens the arch to a full-bleed facade.
+- **01 Manifesto.** Photographs open inside the headline, the paragraph ink-fills line by line, an arch photo with a parallax detail, and the facts count up.
+- **02 Lobby.** Six vertical panels slide in from alternating directions and lock into the photograph (pinned on desktop).
+- **03 Story.** A pinned editorial sequence on desktop (image wipes, rolling counter, outline chapter word, line swaps); sticky stacking cards on mobile.
+- **04 Rooms.** Directional clip-path wipes between eight photographs, SplitText titles, Flip-animated filtering and a Motion shared-layout filter pill. Each room links to its official booking URL; `<details>` lists all eight without JavaScript.
+- **05 Gallery.** A signposted, pinned horizontal sequence with per-frame parallax (`containerAnimation`) on desktop, plus a keyboard focus handler; native scroll-snap elsewhere. Lightbox: keyboard, swipe and Escape, with focus restoration.
+- **06 Location / invitation / footer.** Arch reveal with parallax; a marquee that surges with scroll velocity; a magnetic booking orb.
+- **Navigation.** The header hides on scroll down and changes theme per section. The fullscreen menu opens with a circular reveal from the toggle and shows a photo preview for each link.
+
+Entrance states are hidden before first paint only when motion is allowed, and are released after 3.5s if scripts never load. No WebGL is used: the photography carried the design better than a 3D scene would have, at a fraction of the bundle size. The homepage is the only page, so cross-document view transitions are enabled in CSS but have nothing to transition between yet.
 
 ## Tests and preview
 

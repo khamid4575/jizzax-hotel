@@ -26,6 +26,8 @@ export function SmoothScroll() {
       gsap.ticker.add(tick);
       gsap.ticker.lagSmoothing(0);
       setLenis(lenis);
+      // Exposed for browser tests that need to drive the smoothed scroll.
+      (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
     };
     const stop = () => {
       gsap.ticker.remove(tick);
