@@ -1,0 +1,91 @@
+{
+  "source": "https://jizzaxhotel.uz/",
+  "acquired": "2026-10-30",
+  "method": "Official rendered page asset export",
+  "assets": [
+    {
+      "url": "https://jizzaxhotel.uz/img/09260cd0f524d366.webp",
+      "file": "/img/09260cd0f524d366.webp",
+      "bytes": 137434,
+      "sha256": "92a8f51f1c806f318cbe91626d1f2d642e7137d7e1cc1491fe1e84ebff8e34ff"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/2c10cb74b517fcc4.webp",
+      "file": "/img/2c10cb74b517fcc4.webp",
+      "bytes": 116062,
+      "sha256": "a70d3451fd4f41c157349388c73ff50cca3df7a3875f539cd598e445d210c4d0"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/38f655103e3d41ca.webp",
+      "file": "/img/38f655103e3d41ca.webp",
+      "bytes": 6432,
+      "sha256": "1e33d2b3f65a1500eeaffd69730e58dcc9306974b28997d826a406161d268790"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/4b2e09b705016f46.webp",
+      "file": "/img/4b2e09b705016f46.webp",
+      "bytes": 149314,
+      "sha256": "62625a83e709d63d8155ac75ab0444d764aa4501ce2a1bb62b5a73c45719fedb"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/5f9a6ecdf363f4e4.webp",
+      "file": "/img/5f9a6ecdf363f4e4.webp",
+      "bytes": 252016,
+      "sha256": "c5e107c194453e5bf43ec2f1e5225a8b8164e285f79d661b2bfbd26b45e0a332"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/7aca0fed2df37ef5.webp",
+      "file": "/img/7aca0fed2df37ef5.webp",
+      "bytes": 433818,
+      "sha256": "bdb73cd7f752281b2fa5ab1fbb885cc1b15a4dc95b47d41c599ae7ac744aa48e"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/8622a179a5251e21.webp",
+      "file": "/img/8622a179a5251e21.webp",
+      "bytes": 140750,
+      "sha256": "071cad8d26b8e8277769215d71ad3ddee28419165c79f64452f4510dc3516147"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/b4227c450f5945ba.webp",
+      "file": "/img/b4227c450f5945ba.webp",
+      "bytes": 354162,
+      "sha256": "bbe00804e054e57e76e6172b1e7d4ea56e19e9b0ee3859c098a9fe3478a63391"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/bc2a80b581396a4b.webp",
+      "file": "/img/bc2a80b581396a4b.webp",
+      "bytes": 124722,
+      "sha256": "452b0ddd7d959c66b61477ca2867c3a84b539fb881ef707b6eb61e409d43ae72"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/c7677ad85ced3d3e.webp",
+      "file": "/img/c7677ad85ced3d3e.webp",
+      "bytes": 149314,
+      "sha256": "62625a83e709d63d8155ac75ab0444d764aa4501ce2a1bb62b5a73c45719fedb"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/d0464e578d38e548.webp",
+      "file": "/img/d0464e578d38e548.webp",
+      "bytes": 185802,
+      "sha256": "5d95baadb5c43e362066e15db1a7edd92878f977fdac7b5a11d893299bda2998"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/dc37521878c2d8a9.webp",
+      "file": "/img/dc37521878c2d8a9.webp",
+      "bytes": 188836,
+      "sha256": "949d31f760a382a4233a61917c44c2afe17d3d7cae028b02c67de3d88be33a5d"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/f0c21258d47fdbbb.webp",
+      "file": "/img/f0c21258d47fdbbb.webp",
+      "bytes": 103252,
+      "sha256": "ac2ceac3980bb371c1173b1b1c18fef4162e797b98a57ac5058a5a83833b88c7"
+    },
+    {
+      "url": "https://jizzaxhotel.uz/img/f5aa3152a6cc4417.webp",
+      "file": "/img/f5aa3152a6cc4417.webp",
+      "bytes": 357070,
+      "sha256": "43dbe630ed74880f4a7d68d082e00cde9041affe87c6e8914621d245f03fb399"
+    }
+  ]
+}
