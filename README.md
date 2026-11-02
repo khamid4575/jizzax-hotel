@@ -48,3 +48,4 @@ See `docs/motion-verification.md` for checks actually performed and remaining li
 The homepage is prerendered, with Hotel JSON-LD, canonical/Open Graph metadata, robots.txt and a sitemap. All image and JavaScript requests are local. Photos use responsive Next Image optimization. Security headers cover anti-framing, MIME sniffing, referrers, browser permissions and a limited CSP for frames, base URLs, objects and forms. No payment or guest details are collected here.
 
 Canonical URLs assume `https://jizzaxhotel.uz/`. Configure staging indexing before exposing a staging build publicly. `npm run assets:sync` is an optional photo refresh command; it is not required to run or build the site. No publication or live-site changes have been made.
+"# jizzax-hotel" 
